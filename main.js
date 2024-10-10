@@ -1,7 +1,7 @@
 fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
+    .then(response => response.json()) 
     .then(users => {
-        console.log(users);
+        console.log(users); 
 
         const tableBody = document.querySelector('#usersTable tbody');
 
@@ -15,6 +15,14 @@ fetch('https://jsonplaceholder.typicode.com/users')
             const emailCell = document.createElement('td');
             emailCell.textContent = user.email;
             row.appendChild(emailCell);
+
+            const streetCell = document.createElement('td');
+            streetCell.textContent = user.address.street;
+            row.appendChild(streetCell);
+
+            const cityCell = document.createElement('td');
+            cityCell.textContent = user.address.city;
+            row.appendChild(cityCell);
 
             tableBody.appendChild(row);
         });
